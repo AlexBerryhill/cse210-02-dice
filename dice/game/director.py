@@ -60,6 +60,7 @@ class Director:
         for i in range(len(self.dice)):
             die = self.dice[i]
             die.roll()
+            print(f"{i}: {die.points}")
             self.score += die.points 
         self.total_score += self.score
 
