@@ -57,12 +57,13 @@ class Director:
         if not self.is_playing:
             return 
 
+        #You needed to reset self.score to 0 because it would always carried over
+        self.score = 0
         for i in range(len(self.dice)):
             die = self.dice[i]
             die.roll()
-            print(f"{i}: {die.points}")
-            self.score += die.points 
-        self.total_score += self.score
+            self.score += die.points
+        self.total_score += self.score  
 
     def do_outputs(self):
         """Displays the dice and the score. Also asks the player if they want to roll again. 
@@ -80,4 +81,5 @@ class Director:
 
         print(f"You rolled: {values}")
         print(f"Your score is: {self.total_score}\n")
-        self.is_playing == (self.score > 0)
+        #You had == instead of =, so it would never end
+        self.is_playing = (self.score > 0)
